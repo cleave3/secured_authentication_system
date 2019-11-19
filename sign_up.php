@@ -3,6 +3,25 @@
     <div class="container">
         <div class="content">
             <h2 class="heading">Sign Up</h2>
+        <?php
+            if(Isset($_POST['sign-up'])) {
+               $first_name          = escape($_POST['first_name']);
+               $last_name           = escape($_POST['last_name']);
+               $user_name           = escape($_POST['user_name']);
+               $email               = escape($_POST['user_email']);
+               $password            = escape($_POST['user_password']);
+               $confirm_password    = escape($_POST['user_confirm_password']);
+               
+               display([$first_name, $last_name, $user_name, $email, $password, $confirm_password]);
+
+               if($password == $confirm_password) {
+   
+               }else {
+                    
+               }
+            }
+         
+        ?>
             <div class='notification'>Sign up successful. Check your email for activation link</div>
             <form action="sign_up.php" method="POST">
                 <div class="input-box">
