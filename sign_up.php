@@ -31,37 +31,33 @@
              } else {
                 $password_error = "<div class='text-danger text-center' >Password does not match</div>";
             }
-            
-
-
-    }
-         
-        ?>
+    }  
+?>
             <div class='notification'>Sign up successful. Check your email for activation link</div>
             <form action="sign_up.php" method="POST">
                 <div class="input-box">
                     <input type="text" class="input-control" placeholder="First name" name="first_name" autocomplete="off">
-                    <?php echo isset($first_name_error) ? $first_name_error: null ?>
+                    <?php echo isset($first_name_error) ? $first_name_error: '' ?>
                 </div>
                 <div class="input-box">
                     <input type="text" class="input-control" placeholder="Last name" name="last_name" autocomplete="off">
-                    <?php echo isset($last_name_error) ? $last_name_error: null ?>
+                    <?php echo isset($last_name_error) ? $last_name_error: '' ?>
                 </div>
                 <div class="input-box">
                     <input type="text" class="input-control" placeholder="Username" name="user_name" autocomplete="off">
-                    <?php echo isset($user_name_error) ? $user_name_error: null ?>
+                    <?php echo isset($user_name_error) ? $user_name_error: '' ?>
                 </div>
                 <div class="input-box">
                     <input type="email" class="input-control" placeholder="example@mail.com" name="user_email" autocomplete="off">
-                    <?php echo isset($email_error) ? $email_error: null ?>
+                    <?php echo isset($email_error) ? $email_error: '' ?>
                 </div>
                 <div class="input-box">
                     <input type="password" class="input-control" placeholder="Enter password" name="user_password" autocomplete="off">
-                    <?php echo isset($password_error) ? $password_error: null ?>
+                    <?php echo isset($password_error) ? $password_error: '' ?>
                 </div>
                 <div class="input-box">
                     <input type="password" class="input-control" placeholder="Confirm password" name="user_confirm_password" autocomplete="off">
-                    <?php echo isset($password_error) ? $password_error: null ?>
+                    <?php echo isset($password_error) ? $password_error: '' ?>
                 </div>
                 <div class="input-box">
                     <input type="submit" class="input-submit" value="SIGN UP" name="sign-up">
