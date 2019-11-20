@@ -31,9 +31,21 @@
              } else {
                 $password_error = "<div class='text-danger text-center' >Password does not match</div>";
             }
+
+            if(!isset($first_name_error) && !isset($last_name_error) && !isset($user_name_error) && !isset($email_error) && !isset($password_error)) {
+                $hash = password_hash($password, PASSWORD_BCRYPT, ['cost' => 10]);
+                $query = "INSERT INTO users (first_name, last_name, user_name, email, password, validation_key) VALUES('$first_name', '$last_name', '$user_name', '$email', '$hash', 0)";
+
+                $query_conn = mysqli_query($connection, $query);
+
+                if(!$query_conn) {
+                    die('query failed'. mysqli_error($connection));
+                } else {
+                    echo "<div class='notification'>Sign up successful. Check your email for activation link</div>";
+                }
+            }
     }  
 ?>
-            <div class='notification'>Sign up successful. Check your email for activation link</div>
             <form action="sign_up.php" method="POST">
                 <div class="input-box">
                     <input type="text" class="input-control" placeholder="First name" name="first_name" autocomplete="off">
@@ -68,3 +80,4 @@
         </div>
     </div>
  <?php require_once('includes/footer.php')?>
+ 
